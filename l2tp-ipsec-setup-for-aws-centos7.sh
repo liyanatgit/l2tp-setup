@@ -59,7 +59,7 @@ logfile /var/log/xl2tpd.log
 _XL2TPDCONF_
 
 ## IPsec setup
-sed -i.org -e "s/^#include/include/g" /etc/ipsec.conf
+sed -i.org -e "s/^#include/include/g" -e "s/#logfile/logfile/g" /etc/ipsec.conf
 cat << _IPSECCONF_ > /etc/ipsec.d/l2tp-ipsec.conf
 conn L2TP-PSK-NAT
     rightsubnet=0.0.0.0/0
