@@ -18,4 +18,5 @@
 ## 5. run one shell file to set-up l2tp/ipsec vpn.
  $ sudo bash l2tp-setup/l2tp-ipsec-setup-for-aws-centos7.sh
  
-## 6. using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
+## 6. confirm
+  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
