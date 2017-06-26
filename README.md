@@ -19,6 +19,6 @@
  $ sudo bash l2tp-setup/l2tp-ipsec-setup-for-aws-centos7.sh
  
 ## 6. confirm
- -  port confirm (udp: 1701, 500, 4500) 
+ -  port confirm (udp: 1701, 500, 4500)  
     $ ss -autn
  -  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
