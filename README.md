@@ -20,5 +20,5 @@
  
 ## 6. confirm
  -  port confirm
-    $ ss -autn
+ .   $ ss -autn
  -  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
