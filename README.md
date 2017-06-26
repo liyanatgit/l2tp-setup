@@ -7,6 +7,7 @@
 
 ## 3. clone remote repository to local aws ec2 server.
  $ sudo install -y git
+ 
  $ git clone https://github.com/liyanatgit/l2tp-setup.git l2tp-setup
 
 ## 4. modify shell script if needed.
