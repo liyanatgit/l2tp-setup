@@ -6,7 +6,7 @@
 ## 2. ssh login to aws ec2 instance
 
 ## 3. clone remote repository to local aws ec2 server.
- - $ sudo install -y git
+ - $ sudo yum install -y git
  - $ git clone https://github.com/liyanatgit/l2tp-setup.git l2tp-setup
 
 ## 4. modify shell script if needed.
@@ -19,4 +19,6 @@
  - $ sudo bash l2tp-setup/l2tp-ipsec-setup-for-aws-centos7.sh
  
 ## 6. confirm
+ -  port confirm
+    $ ss -autn
  -  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
