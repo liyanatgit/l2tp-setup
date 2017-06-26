@@ -138,6 +138,6 @@ systemctl restart xl2tpd
 echo -e "${COLOR_WHITE}L2TP/IPsec SERVER IP     : ${COLOR_LIGHT_GREEN}${IPADDR_GLOBAL}${COLOR_DEFAULT}"
 echo -e "${COLOR_WHITE}L2TP/IPsec USER/PASSWORD : \n${COLOR_LIGHT_GREEN}$(/bin/cat /etc/ppp/chap-secrets)${COLOR_DEFAULT}"
 echo -e "${COLOR_WHITE}L2TP/IPsec PSK SECRETS   : ${COLOR_LIGHT_GREEN}${PSK_SECRETS}${COLOR_DEFAULT}"
-echo -e "${COLOR_WHITE}Install log              : ${COLOR_LIGHT_GREEN}/var/log/L2TP_IPsec-installer.log${COLOR_DEFAULT}"
+echo -e "${COLOR_WHITE}Install log              : ${COLOR_LIGHT_GREEN}/var/log/l2tp-ipsec-installer.log${COLOR_DEFAULT}"
 
 ) 2>&1 | tee /var/log/l2tp-ipsec-installer.log
