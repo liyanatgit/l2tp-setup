@@ -24,3 +24,6 @@
  -  vpn user management  
     $ sudo less /etc/ppp/chap-secrets
  -  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
+
+## 7. trouble shooting  
+ $ tail -f /var/log/confirm and vpn user management
