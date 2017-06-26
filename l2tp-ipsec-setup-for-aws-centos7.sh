@@ -33,7 +33,9 @@ yum install -y epel-release
 ## install package needed
 #yum install -y xl2tpd libreswan lsof
 yum erase -y xl2tpd libreswan
-yum install -y xl2tpd libreswan lsof
+yum install -y xl2tpd libreswan
+
+## lsof firewalld needed because the original centos7 ami lack of these packages
 yum install -y lsof firewalld
 #yum update -y
 
