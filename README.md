@@ -12,13 +12,15 @@
 ## 4. modify shell script if needed.
  $ vi l2tp-setup/l2tp-ipsec-setup-for-aws-centos7.sh  
   you may want to change the following secrets:
-   - l2tp-ipsec-setup-for-aws-centos7.sh  
+   - cat << _SECRETS_ > /tmp/SECRETS_TMP.txt 
    - PSK_SECRETS='psk.p@ss1234'  
 
 ## 5. run one shell file to set-up l2tp/ipsec vpn.
  $ sudo bash l2tp-setup/l2tp-ipsec-setup-for-aws-centos7.sh
  
-## 6. confirm
+## 6. confirm and vpn user management
  -  port confirm (udp: 1701, 500, 4500)  
     $ ss -autn
+ -  vpn user management  
+    $ sudo less /etc/ppp/chap-secrets
  -  using a vpn client (ios, mac, andriod, windows, etc.) to confirm if the vpn server works well 
