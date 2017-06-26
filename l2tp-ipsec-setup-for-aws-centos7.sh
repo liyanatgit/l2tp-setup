@@ -27,17 +27,17 @@ IPADDR_GLOBAL=$(/sbin/ip addr show eth0 2>/dev/null | /bin/grep 'inet ' | /bin/s
 VPN_LOCAL_IPADDRESS='192.168.5.99'
 VPN_REMOTE_IPADDRESS='192.168.5.128-254'
 
-## リポジトリ追加：EPEL
+## add repositoory：EPEL
 yum install -y epel-release
 
-## パッケージ追加
+## install package needed
 #yum install -y xl2tpd libreswan lsof
 yum erase -y xl2tpd libreswan
 yum install -y xl2tpd libreswan lsof
 yum install -y lsof firewalld
 #yum update -y
 
-## L2TP セットアップ
+## L2TP setup
 sed -i.org -e "s/; listen-addr.*/listen-addr = ${IPADDR_GLOBAL}/g" -e "s/ip range.*/ip range = ${VPN_REMOTE_IPADDRESS}/g" -e "s/local ip.*/local ip = ${VPN_LOCAL_IPADDRESS}/g" /etc/xl2tpd/xl2tpd.conf
 
 #sed -i.org -e "s/^ms-dns/# ms-dns/g" -e "s/^noccp/# noccp/g" /etc/ppp/options.xl2tpd
@@ -56,7 +56,7 @@ persist
 logfile /var/log/xl2tpd.log
 _XL2TPDCONF_
 
-## IPsec セットアップ
+## IPsec setup
 sed -i.org -e "s/^#include/include/g" /etc/ipsec.conf
 cat << _IPSECCONF_ > /etc/ipsec.d/l2tp-ipsec.conf
 conn L2TP-PSK-NAT
@@ -89,14 +89,14 @@ echo -e ": PSK \"${PSK_SECRETS}\"" > /etc/ipsec.d/default.secrets
 systemctl enable firewalld
 systemctl restart firewalld
 
-## firewalld セットアップ
+## firewalld setup
 firewall-cmd --permanent --add-service=ipsec
 firewall-cmd --permanent --add-port=1701/udp
 firewall-cmd --permanent --add-port=4500/udp
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --reload
 
-## IP_FORWARD 設定
+## IP_FORWARD setting
 cat << _SYSCTLCONF_ > /etc/sysctl.d/60-sysctl_ipsec.conf
 net.ipv4.ip_forward = 1
 net.ipv4.conf.all.accept_redirects = 0
@@ -126,7 +126,7 @@ net.ipv4.conf.ppp0.send_redirects = 0
 _SYSCTLCONF_
 systemctl restart network
 
-## プロセス起動
+## enable and start process
 systemctl enable ipsec
 systemctl enable xl2tpd
 systemctl restart ipsec
