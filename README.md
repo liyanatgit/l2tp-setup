@@ -29,5 +29,7 @@
  $ tail -f /var/log/xl2tpd.log /var/log/pluto.log  
  
 ## 8. monitoring
+'''
  $ alias vpnuse='grep "CHAP Res" /var/log/xl2tpd.log | awk '\''{print $8}'\'' | uniq -c'  
  $ alias vpnuserall='grep "CHAP Res" /var/log/xl2tpd.log | awk '\''{print $8}'\'' | sort | uniq -c | sort -gr'
+'''
